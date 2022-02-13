@@ -1,0 +1,13 @@
+import numpy as np #Librería numérica
+import matplotlib.pyplot as plt # Para crear gráficos con matplotlib
+%matplotlib inline # Si quieres hacer estos gráficos dentro de un jupyter notebook
+from sklearn.linear_model import LinearRegression #Regresión Lineal con scikit-learn
+def f(x):  # función f(x) = 0.1*x + 1.25 + 0.2*Ruido_Gaussiano
+    np.random.seed(42) # para poder reproducirlo
+    y = 0.1*x + 1.25 + 0.2*np.random.randn(x.shape[0])
+    return y
+x = np.arange(0, 20, 0.5) # generamos valores x de 0 a 20 en intervalos de 0.5
+y = f(x) # calculamos y a partir de la función que hemos generado
+# hacemos un gráfico de los datos que hemos generado
+plt.scatter(x,y,label='data', color='blue')
+plt.title('Datos');
